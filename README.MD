@@ -25,6 +25,35 @@
 		./frpc -c myfrpc.ini
 		
 		在myfrpc.ini配置文件中，配置公网服务器的IP地址及端口和内网的IP及映射端口
+			[common]
+			
+			server_addr = 114.116.67.160 #安装frps的公网服务器IP
+			
+			server_port = 5443 #frps的端口号
+			
+			token = passwd #设置的连接密码
+
+			[ssh] #配置的一个端口映射服务
+			
+			privilege_mode = true
+			
+			remote_port = 6666 #公网端口
+			
+			type = tcp
+			
+			local_port = 22 #本地端口
+			
+			local_ip = 192.168.1.1 #本地IP
+
+			use_gzip = true
+			
+			custom_domains =114.116.67.160
+			
+			log_file = /dev/null
+			
+			log_level = info
+			
+			log_max_days = 3
 
 ######以下为frpc停止自动重启功能######
 
